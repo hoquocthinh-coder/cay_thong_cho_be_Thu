@@ -272,15 +272,6 @@
         // --- HỆ THỐNG LOAD ẢNH ĐA ĐỊNH DẠNG (MULTI-FORMAT LOADER) ---
         function loadPredefinedImages() {
             const loader = new THREE.TextureLoader();
-            
-            // 1. Load ảnh từ link online (Unsplash)
-            CONFIG.preload.images.forEach(url => {
-                loader.load(url, 
-                    (t) => { t.colorSpace = THREE.SRGBColorSpace; addPhotoToScene(t); },
-                    undefined,
-                    (e) => { console.log(`Skipped: ${url}`); }
-                );
-            });
 
             // 2. Load ảnh từ thư mục local (images/1.jpg, 2.png, ...)
             if (CONFIG.preload.autoScanLocal) {
